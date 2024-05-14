@@ -2,6 +2,7 @@ function Carteira() {
 
     return(
         <>
+        <a href="/">Logout</a>
         </>
     )
 }

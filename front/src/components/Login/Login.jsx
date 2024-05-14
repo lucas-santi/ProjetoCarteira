@@ -16,11 +16,19 @@ function Login () {
             loginUserName: loginUserName,
             loginPassword: loginPassword,
         }).then((response)=>{
-            if(response.data.message){
-                window.alert("Usuário ou senha incorretos!")
-            }
-            else{
-                navigateTo('/carteira')
+                window.alert(response.data.message);
+                navigateTo('/carteira');
+        }).catch((error)=>{
+            switch(error.response.status){
+                case 401:
+                    window.alert(error.response.data.message);
+                    break;
+                case 404:
+                    window.alert(error.response.data.message);
+                    break;
+                default:
+                    window.alert(error.response);
+                    break;
             }
         })
     }

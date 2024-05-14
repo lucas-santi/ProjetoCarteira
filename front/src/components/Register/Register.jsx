@@ -15,16 +15,16 @@ function Register() {
             Email: email,
             UserName: userName,
             Password: password
-        }).then(()=>{
-            console.log('front mandou dados')
-            navigateTo('/')
+        }).then((response)=>{
+            window.alert(response.data.message);
+            navigateTo('/');
         })        
     }
 
     return (
         <div className="container">
             <span className="material-symbols-outlined">wallet</span>
-            <input id="email" type="text" className="input_user" placeholder="EMAIL" onChange={(e)=>{setEmail(e.target.value)}} />
+            <input id="email" type="email" className="input_user" placeholder="EMAIL" onChange={(e)=>{setEmail(e.target.value)}} />
             <input id="user" type="text" className="input_user" placeholder="USERNAME" onChange={(e)=>{setUserName(e.target.value)}}/>
             <input id="password" type="password" className="input_password" placeholder="PASSWORD" onChange={(e)=>{setPassword(e.target.value)}}/>
             <div className="container-btn-forgot">
